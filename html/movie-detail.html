@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy first anniversary! - Netflix</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/home.css" rel="stylesheet">
+    <link href="../css/movie-detail.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="Netflix" height="28">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TV Shows</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">New & Popular</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My List</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="search-box me-3">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Titles, people, genres" class="search-input">
+                    </div>
+                    <a href="#" class="nav-link me-3">
+                        <i class="fas fa-bell"></i>
+                    </a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" class="profile-img">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profiles.html">Switch Profiles</a></li>
+                            <li><a class="dropdown-item" href="#">Account</a></li>
+                            <li><a class="dropdown-item" href="#">Help Center</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html">Sign out of Netflix</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Movie Hero Section -->
+    <div class="movie-hero">
+        <div class="movie-backdrop"></div>
+        <div class="movie-content">
+            <div class="movie-info">
+                <div class="d-flex align-items-center mb-2">
+                    <span class="badge bg-light text-dark me-2">New</span>
+                    <span class="season-info">Season : Will not end</span>
+                    <span class="year ms-2">2024-2025</span>
+                    <span class="quality ms-2">HD</span>
+                </div>
+                
+                <h1>Happy First Anniversary!</h1>
+                
+                <div class="movie-stats d-flex align-items-center mb-3">
+                    <span class="trending me-3">
+                        <i class="fas fa-arrow-trend-up"></i> #1 in TV Shows Today
+                    </span>
+                </div>
+
+                <p class="movie-description mb-4">
+                    It's a story that doesn't seem real, but I'm so happy to have a story like this.
+                </p>
+
+                <div class="movie-meta mb-4">
+                    <p class="cast">Cast: Reyhannaya Erlistia, Muhammad Rio Dewantoro</p>
+                    <p class="genres">Genres: TV Dramas, Romance</p>
+                    <p class="mood">This show is: Happy, Perfect</p>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="player.html" class="btn btn-light btn-lg me-2">
+                        <i class="fas fa-play me-2"></i>Play
+                    </a>
+                    <button class="btn btn-secondary btn-lg me-2">
+                        <i class="fas fa-plus me-2"></i>My List
+                    </button>
+                    <button class="btn btn-secondary btn-lg">
+                        <i class="fas fa-thumbs-up me-2"></i>Rate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Episodes Section -->
+    <div class="episodes-section">
+        <div class="container-fluid px-5">
+            <h2 class="mb-4">Episodes</h2>
+            
+            <div class="episode-list">
+                <!-- Episode 1 -->
+                <div class="episode-item">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <span class="episode-number">1</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="episode-thumbnail">
+                                <img src="../img/32.jpg" alt="Episode 1">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="episode-info">
+                                <div class="d-flex justify-content-between">
+                                    <h3>An Unexpected Story</h3>
+                                    <span class="duration">55m</span>
+                                </div>
+                                <p>Tells a story about the meeting of Rio and Naya, which marks the beginning of all these stories.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Episode 2 -->
+                <div class="episode-item">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <span class="episode-number">2</span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="episode-thumbnail">
+                                <img src="../img/28.jpg" alt="Episode 2">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="episode-info">
+                                <div class="d-flex justify-content-between">
+                                    <h3>I Truly Love This Woman</h3>
+                                    <span class="duration">52m</span>
+                                </div>
+                                <p>It's a man's luck to find a woman who he thinks is perfect.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
