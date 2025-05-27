@@ -10,30 +10,6 @@
     <link href="../css/player.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Responsive video container for extra safety */
-        @media (max-width: 768px) {
-            .main-video {
-                object-fit: contain;
-                width: 100vw;
-                height: 56vw;
-                max-height: 60vh;
-            }
-            .video-container {
-                height: 60vh;
-            }
-        }
-        @media (max-width: 480px) {
-            .main-video {
-                width: 100vw;
-                height: 56vw;
-                max-height: 40vh;
-            }
-            .video-container {
-                height: 40vh;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="video-player">
@@ -120,11 +96,11 @@
         // Episode data
         const episodes = {
             "1": {
-                src: "../vid/Wargaming Sim PE - Login - Windows, Mac, Linux - Unity 2022.3.14f1 _DX11_ 2025-05-20 13-57-35.mp4",
-                title: "Sanctuary",
+                src: "../vid/episode1.mp4",
+                title: "An Unexpected Story",
                 episode: "Episode 1 Ep. 1",
-                desc: "With her parents on strike, a spunky kid from Yakuza crime scenes starring...",
-                label: 'Sanctuary E1 "Episode 1"'
+                desc: "Tells a story about the meeting of Rio and Naya, which marks the beginning of all these stories.",
+                label: 'Happy First Anniversary! E1 "Episode 1"'
             },
             "2": {
                 src: "../vid/episode2.mp4",
@@ -142,7 +118,15 @@
 
         // Set video source and info
         const mainVideo = document.getElementById('mainVideo');
-        mainVideo.querySelector('source').src = episodeData.src;
+        const source = mainVideo.querySelector('source');
+        source.src = episodeData.src;
+
+        // Tambahkan class portrait jika episode 1 (atau deteksi otomatis jika ingin)
+        if (episodeNum === "1") {
+            mainVideo.classList.add('portrait-video');
+        } else {
+            mainVideo.classList.remove('portrait-video');
+        }
         mainVideo.load();
 
         document.querySelector('.episode-title').textContent = episodeData.label;
