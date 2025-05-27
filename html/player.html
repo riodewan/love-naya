@@ -3,13 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House of Ninjas - Netflix</title>
+    <title>Netflix Player</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../css/player.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Responsive video container for extra safety */
+        @media (max-width: 768px) {
+            .main-video {
+                object-fit: contain;
+                width: 100vw;
+                height: 56vw;
+                max-height: 60vh;
+            }
+            .video-container {
+                height: 60vh;
+            }
+        }
+        @media (max-width: 480px) {
+            .main-video {
+                width: 100vw;
+                height: 56vw;
+                max-height: 40vh;
+            }
+            .video-container {
+                height: 40vh;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="video-player">
@@ -18,108 +42,129 @@
             <i class="fas fa-arrow-left"></i>
         </button>
 
-        <!-- Skip Intro Button (shown during preview) -->
-        <button class="skip-intro">
+        <!-- Skip Intro Button -->
+        <button class="skip-intro" style="display:none;">
             Skip Intro
         </button>
 
         <!-- Video Container -->
         <div class="video-container">
-            <!-- Video Element -->
-            <video id="mainVideo" class="main-video">
-                <!-- Ganti src dengan path video Anda -->
-                <source src="../vid/Wargaming Sim PE - Login - Windows, Mac, Linux - Unity 2022.3.14f1 _DX11_ 2025-05-20 13-57-35.mp4" type="video/mp4">
-                <!-- Tambahkan subtitle jika ada -->
-                <track 
-                    label="English" 
-                    kind="subtitles" 
-                    srclang="en" 
-                    src="path_to_subtitle_en.vtt"
-                >
+            <video id="mainVideo" class="main-video" preload="metadata">
+                <source src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
 
-            <!-- Netflix Logo (shown during loading) -->
+            <!-- Netflix Loader -->
             <div class="netflix-loader">
                 <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="Netflix" class="netflix-logo">
             </div>
 
-            <!-- Paused Info (shown when paused) -->
+            <!-- Paused Info -->
             <div class="paused-info">
                 <div class="content">
-                    <h2>Sanctuary</h2>
-                    <h3>Episode 1 Ep. 1</h3>
-                    <p class="description">With her parents on strike, a spunky kid from Yakuza crime scenes starring...</p>
+                    <h2 id="pausedTitle"></h2>
+                    <h3 id="pausedEpisode"></h3>
+                    <p class="description" id="pausedDesc"></p>
                 </div>
                 <div class="paused-label">Paused</div>
             </div>
+        </div>
 
-            <!-- Video Controls -->
-            <div class="video-controls">
-                <!-- Progress Bar -->
-                <div class="progress-container">
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 15%"></div>
-                    </div>
-                    <div class="time-info">
-                        <span class="current-time">14:52</span>
-                        <span class="duration">1:55:47</span>
-                    </div>
+        <!-- Video Controls -->
+        <div class="video-controls">
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 0%"></div>
                 </div>
-
-                <!-- Control Buttons -->
-                <div class="controls-main">
-                    <div class="controls-left">
-                        <button class="control-button play-pause">
-                            <i class="fas fa-play"></i>
-                        </button>
+                <div class="time-info">
+                    <span class="current-time">0:00</span>
+                    <span class="duration">0:00</span>
+                </div>
+            </div>
+            <div class="controls-main">
+                <div class="controls-left">
+                    <button class="control-button play-pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button class="control-button replay-10">
+                        <i class="fas fa-undo-alt"></i>
+                    </button>
+                    <div class="volume-control">
                         <button class="control-button">
-                            <i class="fas fa-redo-alt"></i>
+                            <i class="fas fa-volume-up"></i>
                         </button>
-                        <div class="volume-control">
-                            <button class="control-button">
-                                <i class="fas fa-volume-up"></i>
-                            </button>
-                            <div class="volume-slider">
-                                <div class="volume-progress" style="width: 100%"></div>
-                            </div>
+                        <div class="volume-slider">
+                            <div class="volume-progress" style="width: 100%"></div>
                         </div>
                     </div>
-
-                    <div class="episode-info">
-                        <span class="episode-title">Sanctuary E1 "Episode 1"</span>
-                    </div>
-
-                    <div class="controls-right">
-                        <button class="control-button">
-                            <i class="fas fa-closed-captioning"></i>
-                        </button>
-                        <button class="control-button">
-                            <i class="fas fa-step-forward"></i>
-                        </button>
-                        <button class="control-button">
-                            <i class="fas fa-expand"></i>
-                        </button>
-                    </div>
+                </div>
+                <div class="episode-info">
+                    <span class="episode-title"></span>
+                </div>
+                <div class="controls-right">
+                    <button class="control-button captions">
+                        <i class="fas fa-closed-captioning"></i>
+                    </button>
+                    <button class="control-button forward-10">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <button class="control-button fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Episode data
+        const episodes = {
+            "1": {
+                src: "../vid/Wargaming Sim PE - Login - Windows, Mac, Linux - Unity 2022.3.14f1 _DX11_ 2025-05-20 13-57-35.mp4",
+                title: "Sanctuary",
+                episode: "Episode 1 Ep. 1",
+                desc: "With her parents on strike, a spunky kid from Yakuza crime scenes starring...",
+                label: 'Sanctuary E1 "Episode 1"'
+            },
+            "2": {
+                src: "../vid/episode2.mp4",
+                title: "Sanctuary",
+                episode: "Episode 2 Ep. 2",
+                desc: "A new challenge arises for the main character in episode 2.",
+                label: 'Sanctuary E2 "Episode 2"'
+            }
+        };
+
+        // Get episode from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const episodeNum = urlParams.get('episode') || "1";
+        const episodeData = episodes[episodeNum] || episodes["1"];
+
+        // Set video source and info
+        const mainVideo = document.getElementById('mainVideo');
+        mainVideo.querySelector('source').src = episodeData.src;
+        mainVideo.load();
+
+        document.querySelector('.episode-title').textContent = episodeData.label;
+        document.getElementById('pausedTitle').textContent = episodeData.title;
+        document.getElementById('pausedEpisode').textContent = episodeData.episode;
+        document.getElementById('pausedDesc').textContent = episodeData.desc;
+
+        // Controls
         const videoPlayer = document.querySelector('.video-player');
         const playPauseBtn = document.querySelector('.play-pause');
-        const mainVideo = document.getElementById('mainVideo');
         const progressBar = document.querySelector('.progress-bar');
         const currentTimeSpan = document.querySelector('.current-time');
         const durationSpan = document.querySelector('.duration');
         const volumeSlider = document.querySelector('.volume-slider');
         const volumeProgress = document.querySelector('.volume-progress');
         const volumeBtn = document.querySelector('.volume-control .control-button');
+        const replayBtn = document.querySelector('.replay-10');
+        const forwardBtn = document.querySelector('.forward-10');
+        const fullscreenBtn = document.querySelector('.fullscreen');
         let isPlaying = false;
 
-        // Fungsi untuk memformat waktu
+        // Format time
         function formatTime(seconds) {
             const h = Math.floor(seconds / 3600);
             const m = Math.floor((seconds % 3600) / 60);
@@ -127,7 +172,7 @@
             return `${h > 0 ? h + ':' : ''}${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         }
 
-        // Toggle play/pause
+        // Play/Pause
         playPauseBtn.addEventListener('click', () => {
             if (mainVideo.paused) {
                 mainVideo.play();
@@ -142,7 +187,17 @@
             }
         });
 
-        // Update progress bar
+        // Replay 10s
+        replayBtn.addEventListener('click', () => {
+            mainVideo.currentTime = Math.max(mainVideo.currentTime - 10, 0);
+        });
+
+        // Forward 10s
+        forwardBtn.addEventListener('click', () => {
+            mainVideo.currentTime = Math.min(mainVideo.currentTime + 10, mainVideo.duration);
+        });
+
+        // Progress bar update
         mainVideo.addEventListener('timeupdate', () => {
             const progress = (mainVideo.currentTime / mainVideo.duration) * 100;
             progressBar.style.width = `${progress}%`;
@@ -152,14 +207,16 @@
         // Set video time when clicking progress bar
         document.querySelector('.progress').addEventListener('click', (e) => {
             const progressBar = e.currentTarget;
-            const clickPosition = (e.pageX - progressBar.offsetLeft) / progressBar.offsetWidth;
+            const rect = progressBar.getBoundingClientRect();
+            const clickPosition = (e.clientX - rect.left) / rect.width;
             mainVideo.currentTime = clickPosition * mainVideo.duration;
         });
 
         // Volume control
         volumeSlider.addEventListener('click', (e) => {
             const volumeBar = e.currentTarget;
-            const clickPosition = (e.pageX - volumeBar.offsetLeft) / volumeBar.offsetWidth;
+            const rect = volumeBar.getBoundingClientRect();
+            const clickPosition = (e.clientX - rect.left) / rect.width;
             mainVideo.volume = clickPosition;
             volumeProgress.style.width = `${clickPosition * 100}%`;
             updateVolumeIcon(clickPosition);
@@ -191,7 +248,7 @@
         });
 
         // Fullscreen
-        document.querySelector('.fa-expand').parentElement.addEventListener('click', () => {
+        fullscreenBtn.addEventListener('click', () => {
             if (!document.fullscreenElement) {
                 videoPlayer.requestFullscreen();
             } else {
@@ -202,7 +259,6 @@
         // Load metadata
         mainVideo.addEventListener('loadedmetadata', () => {
             durationSpan.textContent = formatTime(mainVideo.duration);
-            // Hide loader when video is ready
             document.querySelector('.netflix-loader').style.display = 'none';
         });
 
@@ -226,7 +282,7 @@
                     playPauseBtn.click();
                     break;
                 case 'f':
-                    document.querySelector('.fa-expand').parentElement.click();
+                    fullscreenBtn.click();
                     break;
                 case 'm':
                     volumeBtn.click();
@@ -249,6 +305,31 @@
                     break;
             }
         });
+
+        // Show paused info
+        mainVideo.addEventListener('pause', () => {
+            videoPlayer.classList.add('paused');
+        });
+        mainVideo.addEventListener('play', () => {
+            videoPlayer.classList.remove('paused');
+        });
+
+        // Hide loader if video fails to load
+        mainVideo.addEventListener('error', () => {
+            document.querySelector('.netflix-loader').style.display = 'none';
+        });
+
+        // Responsive: hide episode-info on very small screens
+        function handleResize() {
+            const epiInfo = document.querySelector('.episode-info');
+            if (window.innerWidth < 480) {
+                epiInfo.style.display = 'none';
+            } else {
+                epiInfo.style.display = '';
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        handleResize();
     </script>
 </body>
-</html> 
+</html>
