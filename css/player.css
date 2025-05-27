@@ -152,6 +152,23 @@ video::-webkit-media-controls-enclosure {
     opacity: 0;
 }
 
+@media (max-width: 768px) {
+    .video-controls {
+        width: 100vw;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1002; /* lebih tinggi dari video */
+        padding-bottom: calc(env(safe-area-inset-bottom, 8px) + 16px); /* ekstra padding bawah */
+        box-sizing: border-box;
+    }
+    .main-video,
+    .portrait-video {
+        /* pastikan tidak menutupi controls */
+        padding-bottom: 80px !important;
+    }
+}
+
 /* Progress Bar */
 .progress-container {
     margin-bottom: 10px;
