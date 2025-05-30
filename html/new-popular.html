@@ -83,23 +83,55 @@
     <!-- Bandung -->
     <div class="content-container mt-1">
         <h2 class="mt-4">Bandung Date</h2>
-        <div class="movies-row-page" id="bandung-date-row">
-            
+        <div class="movies-row-page" id="bandung-date-row">     
         </div>
     </div>
     <div class="content-container mt-1">
         <h2 class="mt-4">Rio Birthday</h2>
-        <div class="movies-row-page" id="rio-birthday-row">
-            
+        <div class="movies-row-page" id="rio-birthday-row"> 
         </div>
     </div>
     <div class="content-container mt-1">
         <h2 class="mt-4">Naya Birthday</h2>
-        <div class="movies-row-page" id="naya-birthday-row">
-            
+        <div class="movies-row-page" id="naya-birthday-row">    
         </div>
     </div>
+
+    <!-- Audio Modal -->
+    <div class="modal fade" id="audioModal" tabindex="-1" aria-labelledby="audioModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white text-center" style="border-radius: 1.5rem;">
+          <div class="modal-body p-4">
+            <img src="../img/lany.jpg" alt="Cover Lagu" class="rounded shadow mb-3" style="width:120px;height:120px;object-fit:cover;">
+            <h5 class="fw-bold mb-1" id="audioModalLabel">Out Of My League</h5>
+            <div class="mb-3" style="font-size: 0.95rem;">Lany</div>
+            <audio id="popupAudio" src="../audio/lany.mp3"></audio>
+            <button id="playAudioBtn" class="btn btn-success btn-lg rounded-pill px-4">
+              <i class="fas fa-play me-2"></i>Play
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Tampilkan modal saat halaman dibuka, hanya bisa ditutup dengan tombol Play
+      window.addEventListener('DOMContentLoaded', function() {
+        var audioModal = new bootstrap.Modal(document.getElementById('audioModal'), {
+          backdrop: 'static',
+          keyboard: false
+        });
+        audioModal.show();
+
+        document.getElementById('playAudioBtn').onclick = function() {
+          document.getElementById('popupAudio').play();
+          audioModal.hide(); // Tutup modal setelah play
+        };
+      });
+    </script>
+
     <script>
         // Daftar tempat, jumlah file, dan prefix
         const news = [
