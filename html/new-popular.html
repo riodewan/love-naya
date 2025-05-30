@@ -62,132 +62,91 @@
     <!-- Konten TV Shows -->
     <div class="content-container mt-5 pt-5">
         <div class="movie-title">A meeting that can't be forgotten.</div>
+    </div>
+    <div class="content-container mt-1">
         <h2 class="mt-4">First Date - Blok M</h2>
-        <div class="movies-row-page">
-            <div class="movies-item-page">
-                <img src="../img/21.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <!-- Tambahkan lebih banyak konten sesuai kebutuhan -->
+        <div class="movies-row-page" id="first-date-row">
         </div>
     </div>
     <!-- Bandung -->
     <div class="content-container mt-1">
         <h2 class="mt-4">Anniversary Date</h2>
-        <div class="movies-row-page">
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <!-- Tambahkan lebih banyak konten sesuai kebutuhan -->
+        <div class="movies-row-page" id="aniv-date-row">
         </div>
     </div>
-    <!-- Bandung -->
+    <!-- Naya Gradu -->
     <div class="content-container mt-1">
         <h2 class="mt-4">Naya's Graduation Day</h2>
-        <div class="movies-row-page">
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <!-- Tambahkan lebih banyak konten sesuai kebutuhan -->
+        <div class="movies-row-page" id="naya-gradu-row">
         </div>
     </div>
     <!-- Bandung -->
     <div class="content-container mt-1">
         <h2 class="mt-4">Bandung Date</h2>
-        <div class="movies-row-page">
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <!-- Tambahkan lebih banyak konten sesuai kebutuhan -->
+        <div class="movies-row-page" id="bandung-date-row">
+            
         </div>
     </div>
     <div class="content-container mt-1">
         <h2 class="mt-4">Rio Birthday</h2>
-        <div class="movies-row-page">
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <!-- Tambahkan lebih banyak konten sesuai kebutuhan -->
+        <div class="movies-row-page" id="rio-birthday-row">
+            
         </div>
     </div>
     <div class="content-container mt-1">
         <h2 class="mt-4">Naya Birthday</h2>
-        <div class="movies-row-page">
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/1.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <div class="movies-item-page">
-                <img src="../img/2.jpg" alt="TV Show">
-                <div class="movie-title">TV Show Title</div>
-            </div>
-            <!-- Tambahkan lebih banyak konten sesuai kebutuhan -->
+        <div class="movies-row-page" id="naya-birthday-row">
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Daftar tempat, jumlah file, dan prefix
+        const news = [
+        { id: 'first-date-row', folder: 'first-date', prefix: 'first-date', count: 4, title: 'First Date - Blok M' },
+        { id: 'aniv-date-row', folder: 'aniv-date', prefix: 'aniv-date', count: 9, title: 'Aniv Date - Aeon JGC' },
+        { id: 'naya-gradu-row', folder: 'naya-gradu', prefix: 'naya-gradu', count: 7, title: 'Naya Graduation - Balai Sudirman' },
+        { id: 'bandung-date-row', folder: 'bandung-date', prefix: 'bandung-date', count: 19, title: 'Bandung' },
+        { id: 'rio-birthday-row', folder: 'rio-birthday', prefix: 'rio-birthday', count: 9, title: 'Rio Birthday' },
+        { id: 'naya-birthday-row', folder: 'naya-birthday', prefix: 'naya-birthday', count: 18, title: 'Naya Birthday' }
+        ];
+        
+        // Fungsi cek file exist
+        function checkImage(src, callback) {
+        const img = new Image();
+        img.onload = () => callback(true, src);
+        img.onerror = () => callback(false, src);
+        img.src = src;
+        }
+
+        news.forEach(place => {
+        const row = document.getElementById(place.id);
+        if (!row) return;
+        row.innerHTML = '';
+        for (let i = 1; i <= place.count; i++) {
+            const basePath = `../img/new/${place.folder}/${place.prefix} (${i})`;
+            const tryExts = ['jpg', 'jpeg'];
+            (function(idx){
+            function tryLoad(extIdx) {
+                if (extIdx >= tryExts.length) return; // Tidak ditemukan
+                const imgSrc = `${basePath}.${tryExts[extIdx]}`;
+                checkImage(imgSrc, (exists) => {
+                if (exists) {
+                    row.innerHTML += `
+                    <div class="movies-item-page">
+                        <img src="${imgSrc}" alt="${place.title}">
+                        <div class="movie-title">${place.title}</div>
+                    </div>
+                    `;
+                } else {
+                    tryLoad(extIdx + 1);
+                }
+                });
+            }
+            tryLoad(0);
+            })(i);
+        }
+        });
+    </script>
 </body>
 </html>
