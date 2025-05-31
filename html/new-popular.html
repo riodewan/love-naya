@@ -157,7 +157,7 @@
         row.innerHTML = '';
         for (let i = 1; i <= place.count; i++) {
             const basePath = `../img/new/${place.folder}/${place.prefix} (${i})`;
-            const tryExts = ['jpg', 'jpeg'];
+            const tryExts = ['jpg', 'jpeg' , 'JPG'];
             (function(idx){
             function tryLoad(extIdx) {
                 if (extIdx >= tryExts.length) return; // Tidak ditemukan
