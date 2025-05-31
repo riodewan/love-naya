@@ -291,7 +291,10 @@ body {
     display: block;
     background: #111;
     transition: opacity 0.2s;
+    margin: 0;           /* pastikan tidak ada margin */
+    padding: 0;          /* pastikan tidak ada padding */
 }
+
 .movies-item-page .overlay-play {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -321,11 +324,12 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+    margin: 0;           /* hilangkan margin */
+    padding: 10px 8px 6px 8px;
     background: linear-gradient(0deg, rgba(0,0,0,0.85) 80%, rgba(0,0,0,0.2) 100%);
     color: #fff;
     font-size: 1rem;
     font-weight: 500;
-    padding: 10px 8px 6px 8px;
     text-align: left;
     text-shadow: 0 2px 8px #000;
     white-space: nowrap;
@@ -340,39 +344,50 @@ body {
 @media (max-width: 992px) {
     .movies-item-page .movie-title {
         font-size: 0.92rem;
-        padding: 8px 6px 4px 6px;
+        padding: 6px 6px 2px 6px;
+        bottom: 0;
     }
 }
 @media (max-width: 768px) {
     .movies-item-page .movie-title {
         font-size: 0.8rem;
-        padding: 6px 4px 3px 4px;
+        padding: 4px 4px 1px 4px;
+        bottom: 0;
     }
 }
 @media (max-width: 480px) {
     .movies-item-page .movie-title {
         font-size: 0.7rem;
-        padding: 4px 2px 2px 2px;
+        padding: 2px 2px 1px 2px;
+        bottom: 0;
     }
 }
 
 /* Responsive tweaks */
 @media (max-width: 992px) {
     .movies-item-page { width: 140px; }
-    .movies-item-page img { height: 180px; }
-    .content-container { padding: 10px 2vw; }
+    .movies-item-page img { height: 100%; min-height: 0; }
+    .movies-item-page .movie-title { 
+        font-size: 0.92rem;
+        padding: 6px 6px 2px 6px;
+        bottom: 0;
+    }
 }
 @media (max-width: 768px) {
     .movies-item-page { width: 110px; }
-    .movies-item-page img { height: 130px; }
-    .movies-item-page .movie-title { font-size: 0.85rem; }
-    .content-container { padding: 6px 1vw; }
-    h2 { font-size: 1.1rem; }
+    .movies-item-page img { height: 100%; min-height: 0; }
+    .movies-item-page .movie-title { 
+        font-size: 0.8rem;
+        padding: 4px 4px 1px 4px;
+        bottom: 0;
+    }
 }
 @media (max-width: 480px) {
     .movies-item-page { width: 90px; }
-    .movies-item-page img { height: 100px; }
-    .movies-item-page .movie-title { font-size: 0.75rem; }
-    .content-container { padding: 3px 0.5vw; }
-    h2 { font-size: 1rem; }
+    .movies-item-page img { height: 100%; min-height: 0; }
+    .movies-item-page .movie-title { 
+        font-size: 0.7rem;
+        padding: 2px 2px 1px 2px;
+        bottom: 0;
+    }
 }
